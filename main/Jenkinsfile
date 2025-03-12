@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Cloning the repo
+                git 'https://github.com/srujanbs12345/PES1UG22CS131__Jenkins-.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                // Compiling the C++ file
+                sh 'g++ main/hello.cpp -o hello'
+            }
+        }
+        stage('Run') {
+            steps {
+                // Running the compiled file
+                sh './hello'
+            }
+        }
+    }
+}
